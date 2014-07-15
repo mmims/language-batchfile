@@ -135,6 +135,10 @@
         'name': 'variable.other.environment.batchfile'
       }
       {
+        'match': '![\\w -]+?!'
+        'name': 'variable.other.environment.batchfile'
+      }
+      {
         'match': '%\\d'
         'name': 'variable.other.argument.batchfile'
       }
