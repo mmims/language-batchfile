@@ -1,0 +1,5 @@
+'.source.batchfile':
+  'editor':
+    'commentStart': 'REM '
+    'increaseIndentPattern': '^.*(\\([^\\)]*)$'
+    'decreaseIndentPattern': '^\\s*\\)\\s*$'
