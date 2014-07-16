@@ -131,7 +131,7 @@
   'variable':
     'patterns': [
       {
-        'match': '%[\\w -]+?%'
+        'match': '%[\\w -]+?(:~\\-?\\d+(,\\-?\\d+)?|:.+=.+)?%'
         'name': 'variable.other.environment.batchfile'
       }
       {
@@ -139,7 +139,7 @@
         'name': 'variable.other.environment.batchfile'
       }
       {
-        'match': '%\\d'
+        'match': '%[\\d\\*]'
         'name': 'variable.other.argument.batchfile'
       }
       {
