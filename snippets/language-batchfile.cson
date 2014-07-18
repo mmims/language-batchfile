@@ -1,0 +1,10 @@
+'.source.batchfile':
+  'if':
+    'prefix': 'if'
+    'body': 'if ${1:condition} (\n\t${0:REM statement}\n)'
+  'else':
+    'prefix': 'el'
+    'body': 'else (\n\t${0:REM statement}\n)'
+  'for':
+    'prefix': 'for'
+    'body': 'FOR /${1:F} %%${2:a} IN (${3:set}) DO ${0:command}'

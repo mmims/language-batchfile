@@ -4,11 +4,14 @@
   'bat'
   'cmd'
 ]
-'foldingStartMarker': '.*[\\[{\\(]\\s*$'
-'foldingStopMarker': '^\\s*[\\]}\\)]\\s*$'
+'foldingStartMarker': '.*\\(\\s*$'
+'foldingStopMarker': '^\\s*\\)\\s*$'
 'patterns': [
   {
     'include': '#comment'
+  }
+  {
+    'include': '#constant'
   }
   {
     'include': '#keyword'
@@ -38,6 +41,17 @@
       {
         'match': '^\\s*::.*$'
         'name': 'comment.line.colons.batchfile'
+      }
+    ]
+  'constant':
+    'patterns': [
+      {
+        'match': '\\b(?i)nul\\b'
+        'name': 'constant.language.nul.batchfile'
+      }
+      {
+        'match': '\\^'
+        'name': 'constant.character.escape.batchfile'
       }
     ]
   'keyword':
@@ -77,10 +91,6 @@
             'include': '$self'
           }
         ]
-      }
-      {
-        'match': '\\^'
-        'name': 'constant.character.escape.batchfile'
       }
     ]
   'label':
