@@ -1,6 +1,6 @@
 {
   "name": "language-batchfile",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Windows batch file language support in Atom",
   "repository": "https://github.com/mmims/language-batchfile",
   "license": "MIT",
