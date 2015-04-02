@@ -1,3 +1,6 @@
+## 0.4.0 - Update to 1.0 APIs
+* Renamed scoped-properties/ to settings/
+
 ## 0.3.0 - Syntax and Snippets Update
 * Syntax highlighting for nul constant added
 * Initial snippets support for if, else, and for added
