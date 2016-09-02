@@ -141,14 +141,6 @@
   'variable':
     'patterns': [
       {
-        'match': '%[\\w -]+?(:~\\-?\\d+(,\\-?\\d+)?|:.+=.+)?%'
-        'name': 'variable.other.environment.batchfile'
-      }
-      {
-        'match': '![\\w -]+?!'
-        'name': 'variable.other.environment.batchfile'
-      }
-      {
         'match': '%[\\d\\*]'
         'name': 'variable.other.argument.batchfile'
       }
@@ -159,5 +151,13 @@
       {
         'match': '%{1,2}~[fdpnxsatz]*(\\$[\\w]+:)?[A-Za-z0-9]'
         'name': 'variable.other.expanded.batchfile'
+      }
+      {
+        'match': '%[\\w -]+?(:~\\-?\\d+(,\\-?\\d+)?|:.+=.+)?%'
+        'name': 'variable.other.environment.batchfile'
+      }
+      {
+        'match': '![\\w -]+?!'
+        'name': 'variable.other.environment.batchfile'
       }
     ]
