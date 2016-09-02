@@ -1,3 +1,7 @@
+## 0.5.0 - Syntax Fixes
+* Fixed command line argument variable highlighting
+* Fixed improper string highlighting for `echo` strings
+
 ## 0.4.0 - Update to 1.0 APIs
 * Renamed scoped-properties/ to settings/
 
