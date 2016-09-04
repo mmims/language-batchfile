@@ -4,6 +4,12 @@
   "description": "Windows batch file language support in Atom",
   "repository": "https://github.com/mmims/language-batchfile",
   "license": "MIT",
+  "keywords": [
+    "windows",
+    "batch",
+    "bat",
+    "cmd"
+  ],
   "engines": {
     "atom": ">0.50.0"
   },
