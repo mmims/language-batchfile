@@ -168,7 +168,7 @@
         'name': 'variable.other.expanded.batchfile'
       }
       {
-        'match': '%[\\w -]+?(:~\\-?\\d+(,\\-?\\d+)?|:.+=.+)?%'
+        'match': '%[\\w -]+?(:~\\-?\\d+(,\\-?\\d+)?|:.+?=.*?)?%'
         'name': 'variable.other.environment.batchfile'
       }
       {

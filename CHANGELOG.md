@@ -1,6 +1,9 @@
+## 0.5.1 - Syntax Fixes
+* Fixed improper highlighting of environment variable substitution. Fixes #8.
+
 ## 0.5.0 - Syntax Fixes
-* Fixed command line argument variable highlighting
-* Fixed improper string highlighting for `echo` strings
+* Fixed command line argument variable highlighting. Fixes #7.
+* Fixed improper string highlighting for `echo` strings. Fixes #5.
 
 ## 0.4.0 - Update to 1.0 APIs
 * Renamed scoped-properties/ to settings/
