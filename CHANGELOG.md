@@ -1,3 +1,6 @@
+## 0.5.2 - Package Specification
+* Add keywords to package Specification.
+
 ## 0.5.1 - Syntax Fixes
 * Fixed improper highlighting of environment variable substitution. Fixes #8.
 
