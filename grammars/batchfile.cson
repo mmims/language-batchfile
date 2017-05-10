@@ -111,7 +111,7 @@
   'label':
     'patterns': [
       {
-        'match': ':[\\w][\\w -]+\\s'
+        'match': ':[\\w][\\w\\t -]+'
         'name': 'keyword.other.special-method.batchfile'
       }
     ]
