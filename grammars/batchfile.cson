@@ -374,4 +374,136 @@
           }
         ]
       }
+      {
+        'include': '#command_set'
+      }
+    ]
+  'command_set':
+    'patterns': [
+      {
+        'begin': '(?i)\\bSET\\b'
+        'beginCaptures':
+          '0':
+            'name': 'keyword.command.batchfile'
+        'end': '(?=$\\n|[&|><)])'
+        'patterns': [
+          {
+            'include': '#inside_command_set'
+          }
+        ]
+      }
+    ]
+  'inside_command_set':
+    'patterns': [
+      {
+        'include': '#escaped_characters'
+      }
+      {
+        'include': '#variables'
+      }
+      {
+        'include': '#numbers'
+      }
+      {
+        'include': '#parens'
+      }
+      {
+        'include': '#strings'
+      }
+      {
+        'begin': '(")\\s*([^ ][^=]*)(=)"?'
+        'beginCaptures':
+          '1':
+            'name': 'punctuation.definition.string.begin.batchfile'
+          '2':
+            'name': 'variable.other.readwrite.batchfile'
+          '3':
+            'name': 'keyword.operator.assignment.batchfile'
+        'end': '"'
+        'endCaptures':
+          '0':
+            'name': 'string.quoted.double.batchfile'
+        'patterns': [
+          {
+            'include': '#escaped_characters'
+          }
+          {
+            'include': '#variables'
+          }
+          {
+            'include': '#numbers'
+          }
+          {
+            'include': '#parens'
+          }
+        ]
+      }
+      {
+        'match': '([^ ][^=]*)(=)'
+        'captures':
+          '1':
+            'name': 'variable.other.readwrite.batchfile'
+          '2':
+            'name': 'keyword.operator.assignment.batchfile'
+      }
+      {
+        'match': '\\b([^ ][^=\\n]*)$'
+        'name': 'variable.other.readwrite.batchfile'
+      }
+      {
+        'begin': '\\s+/[aA]\\s+'
+        'end': '(?=\n)'
+        'name': 'meta.expression.set.batchfile'
+        'patterns': [
+          {
+            'include': '#inside_command_set_arithmetic'
+          }
+          {
+            'include': '#command_set_group'
+          }
+          {
+            'begin': '"'
+            'beginCaptures':
+              '0':
+                'name': 'punctuation.definition.string.begin.batchfile'
+            'end': '"'
+            'endCaptures':
+              '0':
+                'name': 'punctuation.definition.string.end.batchfile'
+            'name': 'string.quoted.double.batchfile'
+            'patterns': [
+              {
+                'include': '#inside_command_set_arithmetic'
+              }
+              {
+                'include': '#command_set_group'
+              }
+              {
+                'include': '#variables'
+              }
+            ]
+          }
+        ]
+      }
+      {
+        'begin': '\\s+/[pP]\\s+'
+        'end': '(?=$\\n|[&|><)])'
+        'patterns': [
+          {
+            'begin': '([^ ][^=]*)(=)'
+            'beginCaptures':
+                '1':
+                  'name': 'variable.other.readwrite.batchfile'
+                '2':
+                  'name': 'keyword.operator.assignment.batchfile'
+            'end': '(?=$\\n|[&|><)])'
+            'name': 'meta.prompt.set.batchfile'
+            'patterns': [
+              {
+                'include': '#strings'
+              }
+            ]
+          }
+        ]
+      }
     ]
