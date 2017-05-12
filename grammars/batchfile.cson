@@ -111,8 +111,13 @@
   'label':
     'patterns': [
       {
-        'match': ':[\\w][\\w -]+\\s'
-        'name': 'keyword.other.special-method.batchfile'
+        'match': '^\\s*(:)([^+=,;:\\s].*)$'
+        'captures':
+          '1':
+            'name': 'punctuation.separator.batchfile'
+          '2':
+            'name': 'keyword.other.special-method.batchfile'
+            # 'name': 'entity.name.label.batchfile'
       }
     ]
   'redirection':
