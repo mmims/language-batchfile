@@ -4,175 +4,374 @@
   'bat'
   'cmd'
 ]
-'foldingStartMarker': '.*\\(\\s*$'
-'foldingStopMarker': '^\\s*\\)\\s*$'
+# 'foldingStartMarker': '.*\\(\\s*$'
+# 'foldingStopMarker': '^\\s*\\)\\s*$'
 'patterns': [
   {
-    'include': '#comment'
+    'include': '#comments'
   }
   {
-    'include': '#constant'
+    'include': '#labels'
   }
   {
-    'include': '#keyword'
+    'include': '#strings'
   }
   {
-    'include': '#label'
+    'include': '#escaped_characters'
   }
   {
-    'include': '#redirection'
+    'include': '#variables'
   }
   {
-    'include': '#string'
+    'include': '#parens'
   }
   {
-    'include': '#variable'
+    'include': '#numbers'
+  }
+  {
+    'include': '#constants'
+  }
+  {
+    'include': '#operators'
+  }
+  {
+    'include': '#commands'
   }
 ]
 'repository':
-  'comment':
+  'comments':
     'patterns': [
       {
+        'begin': '(?:^|(&))\\s*(?=((?::[+=,;: ])))'
+        'end': '\\n'
         'captures':
-          '1': 'keyword.command.rem.batchfile'
-        'match': '^\\s*((?i)rem)(?:$|\\s.*$)'
-        'name': 'comment.line.rem.batchfile'
+          '1':
+            'name': 'keyword.operator.conditional.batchfile'
+        'patterns': [
+          {
+            'begin': '((?::[+=,;: ]))'
+            'end': '(?=\\n)'
+            'captures':
+              '1':
+                'name': 'punctuation.definition.comment.batchfile'
+            'name': 'comment.line.colon.batchfile'
+          }
+        ]
       }
       {
-        'match': '^\\s*::.*$'
-        'name': 'comment.line.colons.batchfile'
+        # https://technet.microsoft.com/en-us/library/cc753384(v=ws.11).aspx
+        'begin': '\\b(?i)rem\\b'
+        'end': '\\n'
+        'captures':
+          '0':
+            'name': 'keyword.command.rem.batchfile'
+        'name': 'comment.line.rem.batchfile'
+        'patterns': [
+          {
+            'match': '[><|]'
+            'name': 'invalid.illegal.unexpected-character.batchfile'
+          }
+        ]
       }
     ]
-  'constant':
+  'labels':
     'patterns': [
       {
-        'match': '\\b(?i)nul\\b'
-        'name': 'constant.language.nul.batchfile'
+        'match': '^\\s*(:)([^+=,;:\\s].*)$'
+        'captures':
+          '1':
+            'name': 'punctuation.separator.batchfile'
+          '2':
+            'name': 'entity.name.label.batchfile'
+          #   'name': 'keyword.other.special-method.batchfile'
       }
+    ]
+  'strings':
+    'patterns': [
       {
-        'match': '\\^'
+        'begin': '"'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.string.begin.batchfile'
+        'end': '(")|(\\n)'
+        'endCaptures':
+          '1':
+            'name': 'punctuation.definition.string.end.batchfile'
+          '2':
+            'name': 'invalid.illegal.newline.batchfile'
+        'name': 'string.quoted.double.batchfile'
+        'patterns': [
+          {
+            'include': '#escaped_characters'
+          }
+          {
+            'include': '#variables'
+          }
+        ]
+      }
+    ]
+  'escaped_characters':
+    'patterns': [
+      {
+        'match': '%%|\\^\\^!|\\^.|\\^\\n'
         'name': 'constant.character.escape.batchfile'
       }
     ]
-  'keyword':
+  'variables':
     'patterns': [
       {
-        'match': '\\b(?i)(?:append|assoc|at|attrib|break|cacls|cd|chcp|chdir|chkdsk|chkntfs|cls|cmd|color|comp|compact|convert|copy|date|del|dir|diskcomp|diskcopy|doskey|endlocal|erase|fc|find|findstr|format|ftype|graftabl|help|keyb|label|md|mkdir|mode|more|move|path|pause|popd|print|prompt|pushd|rd|recover|rem|ren|rename|replace|restore|rmdir|set|setlocal|shift|sort|start|subst|time|title|tree|type|ver|verify|vol|xcopy)\\b'
-        'name': 'keyword.command.batchfile'
+        'match': '(%)((~([fdpnxsatz]|\\$PATH:)*)?\\d|\\*)'
+        'captures':
+          '1':
+            'name': 'punctuation.definition.variable.batchfile'
+        'name': 'variable.parameter.batchfile'
       }
       {
-        'match': '\\b(?i)(echo)\\b(.*)\\n'
-        'captures': {
-          '1': {
-            'name': 'keyword.command.batchfile'
-          }
-          '2': {
+        'include': '#variable'
+      }
+      {
+        'include': '#variable_delayed_expansion'
+      }
+    ]
+  'variable':
+    'patterns': [
+      {
+        'begin': '%(?=[^%]+%)'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.variable.begin.batchfile'
+        'end': '(%)|\\n'
+        'endCaptures':
+          '1':
+            'name': 'punctuation.definition.variable.end.batchfile'
+        'name': 'variable.other.readwrite.batchfile'
+        'patterns': [
+          {
+            'begin': ':~'
+            'beginCaptures':
+              '0':
+                'name': 'punctuation.separator.batchfile'
+            'end': '(?=%|\\n)'
+            'name': 'meta.variable.substring.batchfile'
             'patterns': [
               {
-                'include': '#variable'
+                'include': '#variable_substring'
               }
             ]
           }
-        }
+          {
+            'begin': ':'
+            'beginCaptures':
+              '0':
+                'name': 'punctuation.separator.batchfile'
+            'end': '(?=%|\\n)'
+            'name': 'meta.variable.substitution.batchfile'
+            'patterns': [
+              {
+                'include': '#variable_replace'
+              }
+              {
+                'begin': '='
+                'beginCaptures':
+                  '0':
+                    'name': 'punctuation.separator.batchfile'
+                'end': '(?=%|\\n)'
+                'patterns': [
+                  {
+                    'include': '#variable_delayed_expansion'
+                  }
+                  {
+                    'match': '[^%]+'
+                    'name': 'string.unquoted.batchfile'
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       }
+    ]
+  'variable_delayed_expansion':
+    'patterns': [
       {
-        'match': '\\b(?i)(?:goto|call|exit)\\b'
-        'name': 'keyword.control.statement.batchfile'
-      }
-      {
-        'match': '\\b(?i)if\\s+((not)\\s+)?(exist|defined|errorlevel|cmdextversion)\\b'
-        'name': 'keyword.control.conditional.if.batchfile'
-      }
-      {
-        'match': '\\b(?i)(?:if|else)\\b'
-        'name': 'keyword.control.conditional.batchfile'
-      }
-      {
-        'match': '\\b(?i)for\\b'
-        'name': 'keyword.control.repeat.batchfile'
-      }
-      {
-        'match': '\\b(?i)(?:equ|neq|lss|leq|gtr|geq)\\b'
-        'name': 'keyword.operator.batchfile'
-      }
-      {
-        'begin': '^\\s*(@)'
+        'begin': '!(?=[^!]+!)'
         'beginCaptures':
-          '1': 'punctuation.definition.bold.silent.batchfile'
-        'end': '\\s+'
-        'name': 'keyword.other.silent.batchfile'
+          '0':
+            'name': 'punctuation.definition.variable.begin.batchfile'
+        'end': '(!)|\\n'
+        'endCaptures':
+          '1':
+            'name': 'punctuation.definition.variable.end.batchfile'
+        'name': 'variable.other.readwrite.batchfile'
         'patterns': [
+          {
+            'begin': ':~'
+            'beginCaptures':
+              '0':
+                'name': 'punctuation.separator.batchfile'
+            'end': '(?=!|\\n)'
+            'name': 'meta.variable.substring.batchfile'
+            'patterns': [
+              {
+                'include': '#variable_substring'
+              }
+            ]
+          }
+          {
+            'begin': ':'
+            'beginCaptures':
+              '0':
+                'name': 'punctuation.separator.batchfile'
+            'end': '(?=!|\\n)'
+            'name': 'meta.variable.substitution.batchfile'
+            'patterns': [
+              {
+                'include': '#variable_replace'
+              }
+              {
+                'include': '#variable'
+              }
+              {
+                'begin': '='
+                'beginCaptures':
+                  '0':
+                    'name': 'punctuation.separator.batchfile'
+                'end': '(?=!|\\n)'
+                'patterns': [
+                  {
+                    'include': '#variable'
+                  }
+                  {
+                    'match': '[^!]+'
+                    'name': 'string.unquoted.batchfile'
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  'variable_replace':
+    'patterns': [
+      {
+        'match': '[^=]+'
+        'name': 'string.unquoted.batchfile'
+      }
+    ]
+  'variable_substring':
+    'patterns': [
+      {
+        'match': '[+-]?\\d+'
+        'name': 'constant.numeric.batchfile'
+        'patterns': [
+          {
+            'include': '#comma_separator'
+          }
+        ]
+      }
+    ]
+  'comma_separator':
+    'patterns': [
+      {
+        'match': ','
+        'name': 'punctuation.separator.batchfile'
+      }
+    ]
+  'command_suffix':
+    'patterns': [
+      {
+        'match': '[\\^+\\[\\]\\\\:\\./]'
+        'name': 'punctuation.separator.batchfile'
+      }
+    ]
+  'parens':
+    'patterns': [
+      {
+        'begin': '\\('
+        'beginCaptures':
+          '0': 'punctuation.section.group.begin.batchfile'
+        'end': '\\)'
+        'endCaptures':
+          '0': 'punctuation.section.group.end.batchfile'
+        'name': 'meta.group.batchfile'
+        'patterns': [
+          {
+            'match': ',|;'
+            'name': 'punctuation.separator.batchfile'
+          }
           {
             'include': '$self'
           }
         ]
       }
     ]
-  'label':
+  'numbers':
     'patterns': [
       {
-        'match': ':[\\w][\\w -]+\\s'
-        'name': 'keyword.other.special-method.batchfile'
+        'match': '\\b(0[xX]\\h*|[+-]?\\d+)\\b'
+        'name': 'constant.numeric.batchfile'
       }
     ]
-  'redirection':
+  'constants':
     'patterns': [
       {
-        'match': '&>|\\d*>&\\d*|\\d*(>>|>|<)|\\d*<&|\\d*<>'
-        'name': 'keyword.operator.redirect.batchfile'
+        'match': '\\b(?i:NUL)\\b'
+        'name': 'constant.language.batchfile'
       }
     ]
-  'string':
+  'operators':
     'patterns': [
       {
-        'begin': '"'
+        'match': '@(?=\\S)'
+        'name': 'keyword.operator.at.batchfile'
+      }
+      {
+        'match': '\\b(?i:EQU|NEQ|LSS|LEQ|GTR|GEQ)\\b|=='
+        'name': 'keyword.operator.comparison.batchfile'
+      }
+      {
+        'match': '\\b(?i:NOT)\\b'
+        'name': 'keyword.operator.logical.batchfile'
+      }
+      {
+        'match': '&&?|\\|\\|'
+        'name': 'keyword.operator.conditional.batchfile'
+      }
+      {
+        'match': '\\|'
+        'name': 'keyword.operator.pipe.batchfile'
+      }
+      {
+        'match': '<&?|>[&>]?'
+        'name': 'keyword.operator.redirection.batchfile'
+      }
+    ]
+  'commands':
+    'patterns': [
+      {
+        'match': '\\b(?i:adprep|append|arp|assoc|at|atmadm|attrib|auditpol|autochk|autoconv|autofmt|bcdboot|bcdedit|bdehdcfg|bitsadmin|bootcfg|brea|cacls|call|cd|certreq old|certreq|certutil|change|chcp|chdir|chglogon|chgport|chgusr|chkdsk|chkntfs|choice|cipher|clip|clscluadmin|cluster|cmd|cmdkey|cmstp|color|comp|compact|convert|copy|cprofile|cscript|csvde|date|dcdiag|dcgpofix|dcpromo|defra|del|dfscmd|dfsdiag|dfsrmig|diantz|dir|dirquota|diskcomp|diskcopy|diskpart commands|diskperf|diskraid|diskshadow|dispdiag|doin|dnscmd|doskey|driverquery|dsacls|dsadd|dsamain|dsdbutil|dsget|dsmgmt|dsmod|dsmove|dsquery|dsrm|edit|endlocal|eraseesentutl|eventcreate|eventquery.vbs|eventtriggers|evntcmd|exit|expand|extract|fc|filescrn|find|findstr|finger|flattemp|fonde|for|forfiles|format|freedisk|fsutil|ftp|ftype|fveupdate|getmac|gettype|goto|gpfixup|gpresult|gpupdate|graftabl|hashgen|hep|helpctr|hostname|icacls|if|iisreset|inuse|ipconfig|ipxroute|irftp|ismserv|jetpack|klist|ksetup|ktmutil|ktpass|label|ldifd|ldp|lodctr|logman|logoff|lpq|lpr|macfile|makecab|manage-bde|mapadmin|md|mkdir|mklink|mmc|mode|more|mount|mountvol|move|mqbup|mqsvc|mqtgsvc|msdt|msg|msiexec|msinfo32|mstsc|nbtstat|net computer|net group|net localgroup|net print|net session|netshare|net use|net user|net view|netcfg|netdiag|netdom|netsh|netstat|nfsadmin|nfsshare|nfsstat|nlb|nlbmgr|nltest|nslookup|ntackup|ntcmdprompt|ntdsutil|ntfrsutl|openfiles|pagefileconfig.vbs|path|pathping|pause|pbadmin|pentnt|perfmon|ping|pnpunatten|pnputil|popd|powercfg|powershell|powershell_ise|print|prncnfg.vbs|prndrvr.vbs|prnjobs.vbs|prnmngr.vbs|prnport.vbs|prnqctl.bs|prompt|pubprn.vbs|pushd|pushprinterconnections|pwlauncher|qappsrv|qprocess|query|quser|qwinsta|rasdial|rcp|rd|rdpsign|regentc|recover|redircmp|redirusr|reg|regini|regsvr32|relog|ren|rename|rendom|repadmin|repair-bde|replace|reset session|rxec|risetup|rmdir|robocopy|route|rpcinfo|rpcping|rsh|runas|rundll32|rwinsta|sc|schtasks|scwcmd|secedit|serverceipoptin|servrmanagercmd|serverweroptin|setlocal|setspn|setx|sfc|shadow|shift|showmount|shutdown|sort|start|storrept|subst|sxstrace|ysocmgr|systeminfo|takeown|tapicfg|taskkill|tasklist|tcmsetup|telnet|tftp|time|timeout|title|tlntadmn|tpmvscmgr|tpmvscmgr|tacerpt|tracert|tree|tscon|tsdiscon|tsecimp|tskill|tsprof|type|typeperf|tzutil|uddiconfig|umount|unlodctr|ver|verifier|verif|vol|vssadmin|w32tm|waitfor|wbadmin|wdsutil|wecutil|wevtutil|where|whoami|winnt|winnt32|winpop|winrm.cmd|winrs|winsat|wlbs|mic|wscript|xcopy)\\b'
+        'name': 'keyword.command.batchfile'
+      }
+      {
+        'begin': '\\b(?i:echo)\\b'
         'beginCaptures':
-          '0': 'punctuation.definition.string.begin.batchfile'
-        'end': '"'
-        'endCaptures':
-          '0': 'punctuation.definition.string.end.batchfile'
-        'name': 'string.quoted.double.batchfile'
+          '0':
+            'name': 'keyword.command.batchfile'
+        'end': '(?=$\\n|[&|><)])'
         'patterns': [
           {
-            'include': '#variable'
+            'include': '#escaped_characters'
           }
-        ]
-      }
-      {
-        'begin': '\''
-        'beginCaptures':
-          '0': 'punctuation.definition.string.begin.batchfile'
-        'end': '\''
-        'endCaptures':
-          '0': 'punctuation.definition.string.end.batchfile'
-        'name': 'string.quoted.single.batchfile'
-        'patterns': [
           {
-            'include': '#variable'
+            'include': '#variables'
+          }
+          {
+            'include': '#numbers'
+          }
+          {
+            'include': '#strings'
           }
         ]
-      }
-    ]
-  'variable':
-    'patterns': [
-      {
-        'match': '%[\\d\\*]'
-        'name': 'variable.other.argument.batchfile'
-      }
-      {
-        'match': '%%[A-Za-z]'
-        'name': 'variable.other.local.batchfile'
-      }
-      {
-        'match': '%{1,2}~[fdpnxsatz]*(\\$[\\w]+:)?[A-Za-z0-9]'
-        'name': 'variable.other.expanded.batchfile'
-      }
-      {
-        'match': '%[\\w -]+?(:~\\-?\\d+(,\\-?\\d+)?|:.+?=.*?)?%'
-        'name': 'variable.other.environment.batchfile'
-      }
-      {
-        'match': '![\\w -]+?!'
-        'name': 'variable.other.environment.batchfile'
       }
     ]
