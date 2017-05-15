@@ -147,7 +147,7 @@
       }
       {
         'begin': '\\s+/[aA]\\s+'
-        'end': '(?=\n)'
+        'end': '(?=\\n)'
         'name': 'meta.expression.set.batchfile'
         'patterns': [
           {
@@ -399,7 +399,7 @@
         'beginCaptures':
           '0':
             'name': 'punctuation.definition.string.begin.batchfile'
-        'end': '(")|(\\n)'
+        'end': '(")|($)'
         'endCaptures':
           '1':
             'name': 'punctuation.definition.string.end.batchfile'
