@@ -134,20 +134,34 @@
         ]
       }
       {
-        'match': '([^ ][^=]*)(=)'
-        'captures':
+        'begin': '([^ ][^=]*)(=)'
+        'beginCaptures':
           '1':
             'name': 'variable.other.readwrite.batchfile'
           '2':
             'name': 'keyword.operator.assignment.batchfile'
-      }
-      {
-        'match': '\\b([^ ][^=\\n]*)$'
-        'name': 'variable.other.readwrite.batchfile'
+        'end': '(?=$\\n|[&|><)])'
+        'patterns': [
+          {
+            'include': '#escaped_characters'
+          }
+          {
+            'include': '#variables'
+          }
+          {
+            'include': '#numbers'
+          }
+          {
+            'include': '#parens'
+          }
+          {
+            'include': '#strings'
+          }
+        ]
       }
       {
         'begin': '\\s+/[aA]\\s+'
-        'end': '(?=\\n)'
+        'end': '(?=$\\n|[&|><)])'
         'name': 'meta.expression.set.batchfile'
         'patterns': [
           {
@@ -255,28 +269,38 @@
     'patterns': [
       {
         'begin': '(?:^|(&))\\s*(?=((?::[+=,;: ])))'
-        'end': '\\n'
-        'captures':
+        'beginCaptures':
           '1':
             'name': 'keyword.operator.conditional.batchfile'
+        'end': '\\n'
         'patterns': [
           {
             'begin': '((?::[+=,;: ]))'
-            'end': '(?=\\n)'
-            'captures':
+            'beginCaptures':
               '1':
                 'name': 'punctuation.definition.comment.batchfile'
+            'end': '(?=\\n)'
             'name': 'comment.line.colon.batchfile'
           }
         ]
       }
       {
+        'begin': '\\b(?i)(REM)(\\.)'
+        'beginCaptures':
+          '1':
+            'name': 'keyword.command.rem.batchfile'
+          '2':
+            'name': 'punctuation.separator.batchfile'
+        'end': '(?=$\\n|[&|><)])'
+        'name': 'comment.line.rem.batchfile'
+      }
+      {
         # https://technet.microsoft.com/en-us/library/cc753384(v=ws.11).aspx
         'begin': '\\b(?i)rem\\b'
-        'end': '\\n'
-        'captures':
+        'beginCaptures':
           '0':
             'name': 'keyword.command.rem.batchfile'
+        'end': '\\n'
         'name': 'comment.line.rem.batchfile'
         'patterns': [
           {
@@ -524,6 +548,9 @@
             'end': '(?=!|\\n)'
             'name': 'meta.variable.substitution.batchfile'
             'patterns': [
+              {
+                'include': '#escaped_characters'
+              }
               {
                 'include': '#variable_replace'
               }
