@@ -4,8 +4,6 @@
   'bat'
   'cmd'
 ]
-# 'foldingStartMarker': '.*\\(\\s*$'
-# 'foldingStopMarker': '^\\s*\\)\\s*$'
 'patterns': [
   {
     'include': '#commands'
@@ -602,13 +600,6 @@
     'patterns': [
       {
         'match': ','
-        'name': 'punctuation.separator.batchfile'
-      }
-    ]
-  'command_suffix':
-    'patterns': [
-      {
-        'match': '[\\^+\\[\\]\\\\:\\./]'
         'name': 'punctuation.separator.batchfile'
       }
     ]
