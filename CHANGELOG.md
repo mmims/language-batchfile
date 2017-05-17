@@ -1,3 +1,13 @@
+## 0.6.0 - Major Grammar Rewrite
+* Better organization of matching patterns.
+* Improved support for set command.
+* Improved support for variables including substring and substitution expansions.
+* Improved command keyword recognition.
+* Unclosed string highlighting does not cross new lines. Fixes #11.
+* Escaped characters in delayed expansion variables works properly. Fixes #11.
+* Properly scope arithmetic operators. Fixes #10.
+* Support for inline comments using &:: syntax. Fixes #9.
+
 ## 0.5.3 - Syntax Fixes
 * Fixed issue with new lines at the end of label highlights. Fixes #12.
 

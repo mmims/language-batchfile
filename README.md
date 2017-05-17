@@ -1,7 +1,7 @@
 # Windows batch file language support in Atom
 
-Adds syntax highlighting to batch files in Atom.
+Adds syntax highlighting and snippets for batch files in Atom.
 
-![batchfile](https://cloud.githubusercontent.com/assets/534908/3602089/b31651d6-0d07-11e4-8e34-41adab71f478.png)
+![language-batchfile](https://cloud.githubusercontent.com/assets/534908/26175651/550d981a-3b21-11e7-8eb0-d19b3d8c60be.png)
 
-_Atom Dark with Base16 Tomorrow Dark theme_
+_One Light with Chester Atom theme_
