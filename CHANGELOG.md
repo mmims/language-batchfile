@@ -1,3 +1,6 @@
+## 0.5.3 - Syntax Fixes
+* Fixed issue with new lines at the end of label highlights. Fixes #12.
+
 ## 0.5.2 - Package Specification
 * Add keywords to package Specification.
 
