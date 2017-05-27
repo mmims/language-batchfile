@@ -363,7 +363,7 @@
   'numbers':
     'patterns': [
       {
-        'match': '\\b(0[xX]\\h*|[+-]?\\d+)\\b'
+        'match': '\\b(0[xX][0-9A-Fa-f]*|[+-]?\\d+)\\b'
         'name': 'constant.numeric.batchfile'
       }
     ]
