@@ -101,9 +101,6 @@
         'include': '#parens'
       }
       {
-        'include': '#strings'
-      }
-      {
         'begin': '(")\\s*([^ ][^=]*)(=)"?'
         'beginCaptures':
           '1':
@@ -118,9 +115,6 @@
             'name': 'string.quoted.double.batchfile'
         'patterns': [
           {
-            'include': '#escaped_characters'
-          }
-          {
             'include': '#variables'
           }
           {
@@ -130,6 +124,9 @@
             'include': '#parens'
           }
         ]
+      }
+      {
+        'include': '#strings'
       }
       {
         'begin': '([^ ][^=]*)(=)'
@@ -421,7 +418,7 @@
         'beginCaptures':
           '0':
             'name': 'punctuation.definition.string.begin.batchfile'
-        'end': '(")|($)'
+        'end': '(")|(\\n)'
         'endCaptures':
           '1':
             'name': 'punctuation.definition.string.end.batchfile'
@@ -429,9 +426,6 @@
             'name': 'invalid.illegal.newline.batchfile'
         'name': 'string.quoted.double.batchfile'
         'patterns': [
-          {
-            'include': '#escaped_characters'
-          }
           {
             'include': '#variables'
           }
