@@ -1,3 +1,16 @@
+## 0.6.3
+* Don't search for escaped characters in strings. Fixes #17.
+* Revert back to special-method scope for labels. Fixes #15.
+* Avoid using the ambiguous \h shorthand character. Fixes #16 .
+
+## 0.6.2
+* Clean up command keyword recognition.
+* Fix variable substring issue with Github highlighter.
+* Improve variable replacement end of line recognition.
+
+## 0.6.1
+* Update package description for atom.io listing.
+
 ## 0.6.0 - Major Grammar Rewrite
 * Better organization of matching patterns.
 * Improved support for set command.
