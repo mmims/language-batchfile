@@ -23,3 +23,4 @@ SETLOCAL DisableDelayedExpansion
 
 ECHO "! ^( ^) ^%% ^. ^# Double caret: ^^ ^"
 ECHO ^"! ^^( ^^) ^^%% ^^. ^^# Double caret: ^^^^ ^^^"
+ECHO "^^! ^^( ^^) ^^%% ^^. ^^# Double caret: ^^^^ ^^"

@@ -3,8 +3,8 @@ REM SYNTAX TEST "source.batchfile"
    @ECHO off
 REM^ keyword.operator.at.batchfile
 
-   EQU, NEQ, LSS, LEQ, GTR, GEQ, ==
-REM^^^  ^^^  ^^^  ^^^  ^^^  ^^^  ^^ keyword.operator.comparison.batchfile
+   EQU NEQ LSS LEQ GTR GEQ ==
+REM^^^ ^^^ ^^^ ^^^ ^^^ ^^^ ^^ keyword.operator.comparison.batchfile
 
    NOT
 REM^^^ keyword.operator.logical.batchfile
