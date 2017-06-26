@@ -43,11 +43,11 @@
   'commands':
     'patterns': [
       {
-        'match': '\\b(?i:adprep|append|arp|assoc|at|atmadm|attrib|auditpol|autochk|autoconv|autofmt|bcdboot|bcdedit|bdehdcfg|bitsadmin|bootcfg|brea|cacls|cd|certreq|certutil|change|chcp|chdir|chglogon|chgport|chgusr|chkdsk|chkntfs|choice|cipher|clip|clscluadmin|cluster|cmd|cmdkey|cmstp|color|comp|compact|convert|copy|cprofile|cscript|csvde|date|dcdiag|dcgpofix|dcpromo|defra|del|dfscmd|dfsdiag|dfsrmig|diantz|dir|dirquota|diskcomp|diskcopy|diskpart|diskperf|diskraid|diskshadow|dispdiag|doin|dnscmd|doskey|driverquery|dsacls|dsadd|dsamain|dsdbutil|dsget|dsmgmt|dsmod|dsmove|dsquery|dsrm|edit|endlocal|eraseesentutl|eventcreate|eventquery|eventtriggers|evntcmd|expand|extract|fc|filescrn|find|findstr|finger|flattemp|fonde|for|forfiles|format|freedisk|fsutil|ftp|ftype|fveupdate|getmac|gettype|gpfixup|gpresult|gpupdate|graftabl|hashgen|hep|helpctr|hostname|icacls|iisreset|inuse|ipconfig|ipxroute|irftp|ismserv|jetpack|klist|ksetup|ktmutil|ktpass|label|ldifd|ldp|lodctr|logman|logoff|lpq|lpr|macfile|makecab|manage-bde|mapadmin|md|mkdir|mklink|mmc|mode|more|mount|mountvol|move|mqbup|mqsvc|mqtgsvc|msdt|msg|msiexec|msinfo32|mstsc|nbtstat|net computer|net group|net localgroup|net print|net session|net share|net start|net stop|net use|net user|net view|net|netcfg|netdiag|netdom|netsh|netstat|nfsadmin|nfsshare|nfsstat|nlb|nlbmgr|nltest|nslookup|ntackup|ntcmdprompt|ntdsutil|ntfrsutl|openfiles|pagefileconfig|path|pathping|pause|pbadmin|pentnt|perfmon|ping|pnpunatten|pnputil|popd|powercfg|powershell|powershell_ise|print|prncnfg|prndrvr|prnjobs|prnmngr|prnport|prnqctl|prompt|pubprn|pushd|pushprinterconnections|pwlauncher|qappsrv|qprocess|query|quser|qwinsta|rasdial|rcp|rd|rdpsign|regentc|recover|redircmp|redirusr|reg|regini|regsvr32|relog|ren|rename|rendom|repadmin|repair-bde|replace|reset session|rxec|risetup|rmdir|robocopy|route|rpcinfo|rpcping|rsh|runas|rundll32|rwinsta|sc|schtasks|scwcmd|secedit|serverceipoptin|servrmanagercmd|serverweroptin|setlocal|setspn|setx|sfc|shadow|shift|showmount|shutdown|sort|start|storrept|subst|sxstrace|ysocmgr|systeminfo|takeown|tapicfg|taskkill|tasklist|tcmsetup|telnet|tftp|time|timeout|title|tlntadmn|tpmvscmgr|tpmvscmgr|tacerpt|tracert|tree|tscon|tsdiscon|tsecimp|tskill|tsprof|type|typeperf|tzutil|uddiconfig|umount|unlodctr|ver|verifier|verif|vol|vssadmin|w32tm|waitfor|wbadmin|wdsutil|wecutil|wevtutil|where|whoami|winnt|winnt32|winpop|winrm|winrs|winsat|wlbs|mic|wscript|xcopy)\\b'
+        'match': '(?<=^|[\\s@])(?i:adprep|append|arp|assoc|at|atmadm|attrib|auditpol|autochk|autoconv|autofmt|bcdboot|bcdedit|bdehdcfg|bitsadmin|bootcfg|brea|cacls|cd|certreq|certutil|change|chcp|chdir|chglogon|chgport|chgusr|chkdsk|chkntfs|choice|cipher|clip|clscluadmin|cluster|cmd|cmdkey|cmstp|color|comp|compact|convert|copy|cprofile|cscript|csvde|date|dcdiag|dcgpofix|dcpromo|defra|del|dfscmd|dfsdiag|dfsrmig|diantz|dir|dirquota|diskcomp|diskcopy|diskpart|diskperf|diskraid|diskshadow|dispdiag|doin|dnscmd|doskey|driverquery|dsacls|dsadd|dsamain|dsdbutil|dsget|dsmgmt|dsmod|dsmove|dsquery|dsrm|edit|endlocal|eraseesentutl|eventcreate|eventquery|eventtriggers|evntcmd|expand|extract|fc|filescrn|find|findstr|finger|flattemp|fonde|forfiles|format|freedisk|fsutil|ftp|ftype|fveupdate|getmac|gettype|gpfixup|gpresult|gpupdate|graftabl|hashgen|hep|helpctr|hostname|icacls|iisreset|inuse|ipconfig|ipxroute|irftp|ismserv|jetpack|klist|ksetup|ktmutil|ktpass|label|ldifd|ldp|lodctr|logman|logoff|lpq|lpr|macfile|makecab|manage-bde|mapadmin|md|mkdir|mklink|mmc|mode|more|mount|mountvol|move|mqbup|mqsvc|mqtgsvc|msdt|msg|msiexec|msinfo32|mstsc|nbtstat|net computer|net group|net localgroup|net print|net session|net share|net start|net stop|net use|net user|net view|net|netcfg|netdiag|netdom|netsh|netstat|nfsadmin|nfsshare|nfsstat|nlb|nlbmgr|nltest|nslookup|ntackup|ntcmdprompt|ntdsutil|ntfrsutl|openfiles|pagefileconfig|path|pathping|pause|pbadmin|pentnt|perfmon|ping|pnpunatten|pnputil|popd|powercfg|powershell|powershell_ise|print|prncnfg|prndrvr|prnjobs|prnmngr|prnport|prnqctl|prompt|pubprn|pushd|pushprinterconnections|pwlauncher|qappsrv|qprocess|query|quser|qwinsta|rasdial|rcp|rd|rdpsign|regentc|recover|redircmp|redirusr|reg|regini|regsvr32|relog|ren|rename|rendom|repadmin|repair-bde|replace|reset session|rxec|risetup|rmdir|robocopy|route|rpcinfo|rpcping|rsh|runas|rundll32|rwinsta|sc|schtasks|scwcmd|secedit|serverceipoptin|servrmanagercmd|serverweroptin|setlocal|setspn|setx|sfc|shadow|shift|showmount|shutdown|sort|start|storrept|subst|sxstrace|ysocmgr|systeminfo|takeown|tapicfg|taskkill|tasklist|tcmsetup|telnet|tftp|time|timeout|title|tlntadmn|tpmvscmgr|tpmvscmgr|tacerpt|tracert|tree|tscon|tsdiscon|tsecimp|tskill|tsprof|type|typeperf|tzutil|uddiconfig|umount|unlodctr|ver|verifier|verif|vol|vssadmin|w32tm|waitfor|wbadmin|wdsutil|wecutil|wevtutil|where|whoami|winnt|winnt32|winpop|winrm|winrs|winsat|wlbs|mic|wscript|xcopy)(?=$|\\s)'
         'name': 'keyword.command.batchfile'
       }
       {
-        'begin': '\\b(?i:echo)\\b'
+        'begin': '(?<=^|[\\s@])(?i:echo)(?=$|\\s|\\.)'
         'beginCaptures':
           '0':
             'name': 'keyword.command.batchfile'
@@ -74,7 +74,7 @@
   'command_set':
     'patterns': [
       {
-        'begin': '(?i)\\bSET\\b'
+        'begin': '(?<=^|[\\s@])(?i:SET)(?=$|\\s)'
         'beginCaptures':
           '0':
             'name': 'keyword.command.batchfile'
@@ -281,7 +281,7 @@
         ]
       }
       {
-        'begin': '\\b(?i)(REM)(\\.)'
+        'begin': '(?<=^|[\\s@])(?i)(REM)(\\.)'
         'beginCaptures':
           '1':
             'name': 'keyword.command.rem.batchfile'
@@ -292,7 +292,7 @@
       }
       {
         # https://technet.microsoft.com/en-us/library/cc753384(v=ws.11).aspx
-        'begin': '\\b(?i)rem\\b'
+        'begin': '(?<=^|[\\s@])(?i:rem)\\b'
         'beginCaptures':
           '0':
             'name': 'keyword.command.rem.batchfile'
@@ -316,11 +316,11 @@
   'controls':
     'patterns': [
       {
-        'match': '\\b(?i)(?:goto|call|exit)\\b'
+        'match': '(?<=^|\\s)(?i)(?:goto|call|exit)(?=$|\\s)'
         'name': 'keyword.control.statement.batchfile'
       }
       {
-        'match': '\\b(?i)(if)\\s+(?:(not)\\s+)?(exist|defined|errorlevel|cmdextversion)\\b'
+        'match': '(?<=^|\\s)(?i)(if)\\s+(?:(not)\\s+)?(exist|defined|errorlevel|cmdextversion)(?=\\s)'
         'captures':
           '1':
             'name': 'keyword.control.conditional.batchfile'
@@ -330,11 +330,11 @@
             'name': 'keyword.other.special-method.batchfile'
       }
       {
-        'match': '\\b(?i)(?:if|else)\\b'
+        'match': '(?<=^|\\s)(?i)(?:if|else)(?=$|\\s)'
         'name': 'keyword.control.conditional.batchfile'
       }
       {
-        'match': '\\b(?i)for\\b'
+        'match': '(?<=^|\\s)(?i)for(?=\\s)'
         'name': 'keyword.control.repeat.batchfile'
       }
     ]
@@ -359,7 +359,7 @@
   'numbers':
     'patterns': [
       {
-        'match': '\\b(0[xX][0-9A-Fa-f]*|[+-]?\\d+)\\b'
+        'match': '(?<=^|\\s|=)(0[xX][0-9A-Fa-f]*|[+-]?\\d+)(?=$|\\s|<|>)'
         'name': 'constant.numeric.batchfile'
       }
     ]
@@ -370,11 +370,11 @@
         'name': 'keyword.operator.at.batchfile'
       }
       {
-        'match': '\\b(?i:EQU|NEQ|LSS|LEQ|GTR|GEQ)\\b|=='
+        'match': '(?<=\\s)(?i:EQU|NEQ|LSS|LEQ|GTR|GEQ)(?=\\s)|=='
         'name': 'keyword.operator.comparison.batchfile'
       }
       {
-        'match': '\\b(?i:NOT)\\b'
+        'match': '(?<=\\s)(?i)(NOT)(?=\\s)'
         'name': 'keyword.operator.logical.batchfile'
       }
       {
