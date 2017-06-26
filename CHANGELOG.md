@@ -1,14 +1,19 @@
-## 0.6.3
+## 0.7.0 - Spec Testing
+* Add Atom Grammar Test suite and tests.
+* Better recognition of word boundaries for keywords. Fixes #19.
+* Snippets keywords changed to upper case for consistency.
+
+## 0.6.3 - Syntax Fixes
 * Don't search for escaped characters in strings. Fixes #17.
 * Revert back to special-method scope for labels. Fixes #15.
 * Avoid using the ambiguous \h shorthand character. Fixes #16 .
 
-## 0.6.2
+## 0.6.2 - Syntax Fixes
 * Clean up command keyword recognition.
 * Fix variable substring issue with Github highlighter.
 * Improve variable replacement end of line recognition.
 
-## 0.6.1
+## 0.6.1 - Package Specification
 * Update package description for atom.io listing.
 
 ## 0.6.0 - Major Grammar Rewrite
@@ -45,7 +50,7 @@
 * Syntax highlighting for variable substrings and replacement added
 * Syntax highlighting for wildcard argument
 
-## 0.1.1 - Syntax Patch
+## 0.1.1 - Syntax Fix
 * Syntax highlighting for delayed expansion variables added
 
 ## 0.1.0 - First Release
