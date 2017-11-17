@@ -395,10 +395,10 @@
       {
         'begin': '\\('
         'beginCaptures':
-          '0': 'punctuation.section.group.begin.batchfile'
+          '0': 'name': 'punctuation.section.group.begin.batchfile'
         'end': '\\)'
         'endCaptures':
-          '0': 'punctuation.section.group.end.batchfile'
+          '0': 'name': 'punctuation.section.group.end.batchfile'
         'name': 'meta.group.batchfile'
         'patterns': [
           {
