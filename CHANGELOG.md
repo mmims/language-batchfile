@@ -1,3 +1,6 @@
+## 0.7.1 - Grammar Fixes
+* Ensure all capture groups have a `name` key. Pull request #21.
+
 ## 0.7.0 - Spec Testing
 * Add Atom Grammar Test suite and tests.
 * Better recognition of word boundaries for keywords. Fixes #19.
