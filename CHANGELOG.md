@@ -1,3 +1,6 @@
+## 0.7.2 - Grammar Fixes
+* Escape double parentheses in quoted strings. Fixes #24.
+
 ## 0.7.1 - Grammar Fixes
 * Ensure all capture groups have a `name` key. Pull request #21.
 
