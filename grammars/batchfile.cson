@@ -427,6 +427,10 @@
         'name': 'string.quoted.double.batchfile'
         'patterns': [
           {
+            'match': '%%'
+            'name': 'constant.character.escape.batchfile'
+          }
+          {
             'include': '#variables'
           }
         ]
@@ -439,7 +443,8 @@
         'captures':
           '1':
             'name': 'punctuation.definition.variable.batchfile'
-        'name': 'variable.parameter.batchfile'
+          '2':
+            'name': 'variable.parameter.batchfile'
       }
       {
         'include': '#variable'

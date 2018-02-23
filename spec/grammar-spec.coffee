@@ -6,6 +6,7 @@ describe "Grammar", ->
     waitsForPromise ->
       atom.packages.activatePackage 'language-batchfile'
 
+  # Key scopes
   grammarTest path.join(__dirname, 'fixtures/comments.bat')
   grammarTest path.join(__dirname, 'fixtures/constants.bat')
   grammarTest path.join(__dirname, 'fixtures/controls.bat')
@@ -13,3 +14,6 @@ describe "Grammar", ->
   grammarTest path.join(__dirname, 'fixtures/operators.bat')
   grammarTest path.join(__dirname, 'fixtures/strings.bat')
   grammarTest path.join(__dirname, 'fixtures/variables.bat')
+
+  # Regression tests
+  grammarTest path.join(__dirname, 'fixtures/issues/issue_024.bat')
