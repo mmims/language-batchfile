@@ -101,7 +101,7 @@
         'include': '#parens'
       }
       {
-        'begin': '(")\\s*([^ ][^=]*)(=)"?'
+        'begin': '(")\\s*([^ ][^=]*)(=)'
         'beginCaptures':
           '1':
             'name': 'punctuation.definition.string.begin.batchfile'
@@ -112,7 +112,8 @@
         'end': '"'
         'endCaptures':
           '0':
-            'name': 'string.quoted.double.batchfile'
+            'name': 'punctuation.definition.string.end.batchfile'
+        'name': 'string.quoted.double.batchfile'
         'patterns': [
           {
             'include': '#variables'

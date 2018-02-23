@@ -1,3 +1,6 @@
+## 0.7.3 - Grammar Fixes
+* Fix quoted variable assignment. Fixes #23.
+
 ## 0.7.2 - Grammar Fixes
 * Escape double parentheses in quoted strings. Fixes #24.
 
