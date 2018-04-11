@@ -103,30 +103,7 @@
         'include': '#parens'
       }
       {
-        'begin': '(")\\s*([^ ][^=]*)(=)'
-        'beginCaptures':
-          '1':
-            'name': 'punctuation.definition.string.begin.batchfile'
-          '2':
-            'name': 'variable.other.readwrite.batchfile'
-          '3':
-            'name': 'keyword.operator.assignment.batchfile'
-        'end': '"'
-        'endCaptures':
-          '0':
-            'name': 'punctuation.definition.string.end.batchfile'
-        'name': 'string.quoted.double.batchfile'
-        'patterns': [
-          {
-            'include': '#variables'
-          }
-          {
-            'include': '#numbers'
-          }
-          {
-            'include': '#parens'
-          }
-        ]
+        'include': '#command_set_strings'
       }
       {
         'include': '#strings'
@@ -197,6 +174,9 @@
         'end': '(?=$\\n|[&|><)])'
         'patterns': [
           {
+            'include': '#command_set_strings'
+          }
+          {
             'begin': '([^ ][^=]*)(=)'
             'beginCaptures':
                 '1':
@@ -262,6 +242,35 @@
       {
         'match': '='
         'name': 'keyword.operator.assignment.batchfile'
+      }
+    ]
+  'command_set_strings':
+    'patterns': [
+      {
+        'begin': '(")\\s*([^ ][^=]*)(=)'
+        'beginCaptures':
+          '1':
+            'name': 'punctuation.definition.string.begin.batchfile'
+          '2':
+            'name': 'variable.other.readwrite.batchfile'
+          '3':
+            'name': 'keyword.operator.assignment.batchfile'
+        'end': '"'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.definition.string.end.batchfile'
+        'name': 'string.quoted.double.batchfile'
+        'patterns': [
+          {
+            'include': '#variables'
+          }
+          {
+            'include': '#numbers'
+          }
+          {
+            'include': '#parens'
+          }
+        ]
       }
     ]
   'comments':
