@@ -47,10 +47,12 @@
         'name': 'keyword.command.batchfile'
       }
       {
-        'begin': '(?<=^|[\\s@])(?i:echo)(?=$|\\s|\\.)'
+        'begin': '(?i)(?<=^|[\\s@])(echo)(?:(?=$|\\.|:)|\\s+(?:(on|off)(?=\\s*$))?)'
         'beginCaptures':
-          '0':
+          '1':
             'name': 'keyword.command.batchfile'
+          '2':
+            'name': 'keyword.other.special-method.batchfile'
         'end': '(?=$\\n|[&|><)])'
         'patterns': [
           {
