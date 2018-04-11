@@ -43,3 +43,29 @@ REM                       ^^^^^^^^ keyword.other.special-method.batchfile
 :my_label
 REM <- punctuation.separator.batchfile
  REM <- keyword.other.special-method.batchfile
+
+REM PART 5
+
+cls
+REM <- keyword.command.batchfile
+
+REM PART 10
+
+setlocal
+REM <- keyword.command.batchfile
+
+SETLOCAL EnableExtensions
+REM <- keyword.command.batchfile
+REM      ^^^^^^^^^^^^^^^^ keyword.other.special-method.batchfile
+
+SETLOCAL DisableExtensions
+REM <- keyword.command.batchfile
+REM      ^^^^^^^^^^^^^^^^^ keyword.other.special-method.batchfile
+
+SETLOCAL EnableDelayedExpansion
+REM <- keyword.command.batchfile
+REM      ^^^^^^^^^^^^^^^^^^^^^^ keyword.other.special-method.batchfile
+
+SETLOCAL DisableDelayedExpansion
+REM <- keyword.command.batchfile
+REM      ^^^^^^^^^^^^^^^^^^^^^^^ keyword.other.special-method.batchfile
