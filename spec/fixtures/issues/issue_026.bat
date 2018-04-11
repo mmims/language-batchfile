@@ -27,3 +27,19 @@ REM <- keyword.command.batchfile
 REM    ^^^^^^^^^^^^^^^^^^ string.quoted.double.batchfile
 REM     ^ variable.other.readwrite.batchfile
 REM      ^ keyword.operator.assignment.batchfile
+
+REM PART 4
+
+IF EXIST myfile.txt GOTO:my_label
+REM                 ^^^^ keyword.control.statement.batchfile
+REM                     ^ punctuation.separator.batchfile
+REM                      ^^^^^^^^ keyword.other.special-method.batchfile
+
+IF EXIST myfile.txt GOTO :my_label
+REM                 ^^^^ keyword.control.statement.batchfile
+REM                      ^ punctuation.separator.batchfile
+REM                       ^^^^^^^^ keyword.other.special-method.batchfile
+
+:my_label
+REM <- punctuation.separator.batchfile
+ REM <- keyword.other.special-method.batchfile
