@@ -69,3 +69,12 @@ REM      ^^^^^^^^^^^^^^^^^^^^^^ keyword.other.special-method.batchfile
 SETLOCAL DisableDelayedExpansion
 REM <- keyword.command.batchfile
 REM      ^^^^^^^^^^^^^^^^^^^^^^^ keyword.other.special-method.batchfile
+
+REM PART 11
+
+SET "PORT_TITLE=Chocolate Doom ^(Setup^)"
+REM <- keyword.command.batchfile
+REM ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ string.quoted.double.batchfile
+REM  ^^^^^^^^^^ variable.other.readwrite.batchfile
+REM            ^ keyword.operator.assignment.batchfile
+REM                            ^      ^ constant.character.escape.batchfile

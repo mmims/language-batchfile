@@ -6,10 +6,10 @@ REM                 ^ constant.numeric.batchfile
 REM                  ^ keyword.operator.redirection.batchfile
 REM                   ^^^ constant.language.batchfile
 
-   ECHO Escaped characters %%, ^^!, ^., ^&, etc.
+   ECHO Escaped characters %%, ^^!, ^(, ^&, etc.
 REM^^^^ keyword.command.batchfile
-REM                        ^^  ^^^  ^^  ^^ constant.character.escape.batchfile
-REM                          ^^   ^^  ^^  ^^^^^^ source.batchfile
+REM                        ^^  ^^^  ^   ^ constant.character.escape.batchfile
+REM                          ^^   ^^ ^^^ ^^^^^^^ source.batchfile
 
    ECHO Decimal number -8675 +8765 8945
 REM                    ^^^^^ ^^^^^ ^^^^ constant.numeric.batchfile

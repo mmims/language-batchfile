@@ -276,7 +276,7 @@
             'include': '#numbers'
           }
           {
-            'include': '#parens'
+            'include': '#escaped_characters'
           }
         ]
       }
@@ -361,7 +361,7 @@
   'escaped_characters':
     'patterns': [
       {
-        'match': '%%|\\^\\^!|\\^.|\\^\\n'
+        'match': '%%|\\^\\^!|\\^(?=.)|\\^\\n'
         'name': 'constant.character.escape.batchfile'
       }
     ]
@@ -398,11 +398,11 @@
         'name': 'keyword.operator.logical.batchfile'
       }
       {
-        'match': '&&?|\\|\\|'
+        'match': '(?<!\\^)&&?|\\|\\|'
         'name': 'keyword.operator.conditional.batchfile'
       }
       {
-        'match': '\\|'
+        'match': '(?<!\\^)\\|'
         'name': 'keyword.operator.pipe.batchfile'
       }
       {

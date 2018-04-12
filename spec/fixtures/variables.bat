@@ -23,8 +23,8 @@ REM ^^^^^^^^^ variable.other.readwrite.batchfile
 REM ^ punctuation.definition.variable.begin.batchfile
 REM     ^^^^ meta.variable.substitution.batchfile
 REM     ^  ^ punctuation.separator.batchfile
-REM      ^^ constant.character.escape.batchfile
-REM         ^ string.unquoted.batchfile
+REM      ^ constant.character.escape.batchfile
+REM       ^ ^ string.unquoted.batchfile
 REM          ^ punctuation.definition.variable.end.batchfile
 
     %PATH:~10,5%
