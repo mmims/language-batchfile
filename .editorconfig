@@ -13,3 +13,4 @@ trim_trailing_whitespace = false
 
 [*.{bat,cmd}]
 end_of_line = crlf
+trim_trailing_whitespace = false
