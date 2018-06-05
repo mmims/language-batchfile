@@ -1,6 +1,9 @@
+## 0.7.5 - Grammar Fixes
+* Fix string assignments with SET /A. Fixes #28.
+
 ## 0.7.4 - Grammar Fixes
 * Fix issues with echo statements. Fixes #26.
-* Fix string assingments with SET /P. Fixes #26.
+* Fix string assignments with SET /P. Fixes #26.
 * Fix issue with goto statements and labels. Fixes #26.
 * Add CLS command and recognize SETLOCAL arguments. Fixes #26.
 * Identify escaped characters in SET string assignments. Fixes #26.
