@@ -148,12 +148,6 @@
         'name': 'meta.expression.set.batchfile'
         'patterns': [
           {
-            'include': '#command_set_inside_arithmetic'
-          }
-          {
-            'include': '#command_set_group'
-          }
-          {
             'begin': '"'
             'beginCaptures':
               '0':
@@ -174,6 +168,12 @@
                 'include': '#variables'
               }
             ]
+          }
+          {
+            'include': '#command_set_inside_arithmetic'
+          }
+          {
+            'include': '#command_set_group'
           }
         ]
       }
@@ -236,8 +236,12 @@
   'command_set_operators':
     'patterns': [
       {
-        'match': '\\+\\=|\\-\\=|\\*\\=|/\\=|%%\\=|&\\=|\\|\\=|\\^\\=|<<\\=|>>\\='
-        'name': 'keyword.operator.assignment.augmented.batchfile'
+        'match': '([^ ]*)(\\+\\=|\\-\\=|\\*\\=|\\/\\=|%%\\=|&\\=|\\|\\=|\\^\\=|<<\\=|>>\\=)'
+        'captures':
+          '1':
+            'name': 'variable.other.readwrite.batchfile'
+          '2':
+            'name': 'keyword.operator.assignment.augmented.batchfile'
       }
       {
         'match': '\\+|\\-|/|\\*|%%|\\||&|\\^|<<|>>|~'
@@ -248,8 +252,12 @@
         'name': 'keyword.operator.logical.batchfile'
       }
       {
-        'match': '='
-        'name': 'keyword.operator.assignment.batchfile'
+        'match': '([^ ][^=]*)(=)'
+        'captures':
+          '1':
+            'name': 'variable.other.readwrite.batchfile'
+          '2':
+            'name': 'keyword.operator.assignment.batchfile'
       }
     ]
   'command_set_strings':
