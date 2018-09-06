@@ -467,12 +467,11 @@
   'variables':
     'patterns': [
       {
-        'match': '(%)((~([fdpnxsatz]|\\$PATH:)*)?\\d|\\*)'
+        'match': '(%)(?:(?i:~[fdpnxsatz]*(?:\\$PATH:)?)?\\d|\\*)'
         'captures':
           '1':
             'name': 'punctuation.definition.variable.batchfile'
-          '2':
-            'name': 'variable.parameter.batchfile'
+        'name': 'variable.parameter.batchfile'
       }
       {
         'include': '#variable'
