@@ -5,12 +5,12 @@
   'cmd'
 ]
 "injections": 
-	"L:meta.block.repeat.batchfile": 
-		"patterns": [
-			{
-				"include": "#repeatParameter"
-			}
-		]
+  "L:meta.block.repeat.batchfile": 
+    "patterns": [
+      {
+        "include": "#repeatParameter"
+      }
+    ]
 'patterns': [
   {
     'include': '#commands'
@@ -368,37 +368,34 @@
         'match': '(?<=^|\\s)(?i)(?:if|else)(?=$|\\s)'
         'name': 'keyword.control.conditional.batchfile'
       }
-			{
-				"begin": "(?<=^|[\\s(&^])(?i)for(?=\\s)"
-				"beginCaptures":
-					"0":
-							"name": "keyword.control.repeat.batchfile"
-				"name": "meta.block.repeat.batchfile"
-				"end": "\\n"
-				"patterns":[
-					{
-						"begin": "(?<=\\s|^)(?i)in(?=\\s)"
-						"beginCaptures":
-							"0":
-								"name": "keyword.control.repeat.in.batchfile"
-						"end": "(?<=[\\s)^])(?i)do(?=\\s)|\\n",
-						"endCaptures":
-							"0":
-								"name": "keyword.control.repeat.do.batchfile"
+      {
+        "begin": "(?<=^|[\\s(&^])(?i)for(?=\\s)"
+        "beginCaptures":
+          "0":
+              "name": "keyword.control.repeat.batchfile"
+        "name": "meta.block.repeat.batchfile"
+        "end": "\\n"
+        "patterns":[
+          {
+            "begin": "(?<=\\s|^)(?i)in(?=\\s)"
+            "beginCaptures":
+              "0":
+                "name": "keyword.control.repeat.in.batchfile"
+            "end": "(?<=[\\s)^])(?i)do(?=\\s)|\\n",
+            "endCaptures":
+              "0":
+                "name": "keyword.control.repeat.do.batchfile"
             "patterns":[
               {
                 "include": "$self"
               }
             ]
-					}
-					{
-						"include": "#repeatParameter"
-					}
-					{
-						"include": "$self"
-					}
-				]
-			}
+          }
+          {
+            "include": "$self"
+          }
+        ]
+      }
     ]
   'escaped_characters':
     'patterns': [
@@ -474,15 +471,15 @@
       }
     ]
   "repeatParameter":
-		"patterns": [
-			{
-				"match": "(%%)(?:(?i:~[fdpnxsatz]*(?:\\$PATH:)?)?[a-zA-Z])"
-				"captures":
-					"1":
-						"name": "punctuation.definition.variable.batchfile"
-				"name": "variable.parameter.repeat.batchfile"
-			}
-		]
+    "patterns": [
+      {
+        "match": "(%%)(?:(?i:~[fdpnxsatz]*(?:\\$PATH:)?)?[a-zA-Z])"
+        "captures":
+          "1":
+            "name": "punctuation.definition.variable.batchfile"
+        "name": "variable.parameter.repeat.batchfile"
+      }
+    ]
   'strings':
     'patterns': [
       {
