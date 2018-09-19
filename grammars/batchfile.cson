@@ -377,7 +377,7 @@
         'end': '\\n'
         'patterns':[
           {
-            'begin': '(?<=\\s|^)(?i)in(?=\\s)'
+            'begin': '(?<=[\\s^])(?i)in(?=\\s)'
             'beginCaptures':
               '0':
                 'name': 'keyword.control.repeat.in.batchfile'
