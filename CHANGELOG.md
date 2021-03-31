@@ -1,3 +1,7 @@
+## 0.7.6 - Grammar Fixes
+* Add OpenSSH keywords. Fixes #31
+* Add wmic and wsl keywords.
+
 ## 0.7.5 - Grammar Fixes
 * Fix string assignments with SET /A. Fixes #28.
 
