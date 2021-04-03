@@ -376,7 +376,7 @@
   'labels':
     'patterns': [
       {
-        'match': '(?i)(?:^\\s*|(?<=goto)\\s*)(:)([^+=,;:\\s].*)$'
+        'match': '(?i)(?:^\\s*|(?<=call|goto)\\s*)(:)([^+=,;:\\s]\\S*)'
         'captures':
           '1':
             'name': 'punctuation.separator.batchfile'
