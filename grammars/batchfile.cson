@@ -252,7 +252,7 @@
         'name': 'keyword.operator.logical.batchfile'
       }
       {
-        'match': '([^ ][^=]*)(=)'
+        'match': '([^ =]*)(=)'
         'captures':
           '1':
             'name': 'variable.other.readwrite.batchfile'
