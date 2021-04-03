@@ -369,7 +369,7 @@
   'escaped_characters':
     'patterns': [
       {
-        'match': '%%|\\^\\^!|\\^(?=.)|\\^\\n'
+        'match': '%%|\\^\\^!|\\^.|\\^\\n'
         'name': 'constant.character.escape.batchfile'
       }
     ]
