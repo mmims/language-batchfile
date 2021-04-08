@@ -18,5 +18,7 @@ describe "Grammar", ->
   # Regression tests
   grammarTest path.join(__dirname, 'fixtures/issues/issue_023.bat')
   grammarTest path.join(__dirname, 'fixtures/issues/issue_024.bat')
+  grammarTest path.join(__dirname, 'fixtures/issues/issue_025.bat')
   grammarTest path.join(__dirname, 'fixtures/issues/issue_026.bat')
   grammarTest path.join(__dirname, 'fixtures/issues/issue_028.bat')
+  grammarTest path.join(__dirname, 'fixtures/issues/issue_029.bat')
