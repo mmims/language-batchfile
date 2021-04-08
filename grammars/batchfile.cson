@@ -4,6 +4,13 @@
   'bat'
   'cmd'
 ]
+'injections':
+  'L:meta.block.repeat.batchfile':
+    'patterns': [
+      {
+        'include': '#repeatParameter'
+      }
+    ]
 'patterns': [
   {
     'include': '#commands'
@@ -362,8 +369,32 @@
         'name': 'keyword.control.conditional.batchfile'
       }
       {
-        'match': '(?<=^|\\s)(?i)for(?=\\s)'
-        'name': 'keyword.control.repeat.batchfile'
+        'begin': '(?<=^|[\\s(&^])(?i)for(?=\\s)'
+        'beginCaptures':
+          '0':
+              'name': 'keyword.control.repeat.batchfile'
+        'name': 'meta.block.repeat.batchfile'
+        'end': '\\n'
+        'patterns':[
+          {
+            'begin': '(?<=[\\s^])(?i)in(?=\\s)'
+            'beginCaptures':
+              '0':
+                'name': 'keyword.control.repeat.in.batchfile'
+            'end': '(?<=[\\s)^])(?i)do(?=\\s)|\\n',
+            'endCaptures':
+              '0':
+                'name': 'keyword.control.repeat.do.batchfile'
+            'patterns':[
+              {
+                'include': '$self'
+              }
+            ]
+          }
+          {
+            'include': '$self'
+          }
+        ]
       }
     ]
   'escaped_characters':
@@ -439,6 +470,16 @@
         ]
       }
     ]
+  'repeatParameter':
+    'patterns': [
+      {
+        'match': '(%%)(?:(?i:~[fdpnxsatz]*(?:\\$PATH:)?)?[a-zA-Z])'
+        'captures':
+          '1':
+            'name': 'punctuation.definition.variable.batchfile'
+        'name': 'variable.parameter.repeat.batchfile'
+      }
+    ]
   'strings':
     'patterns': [
       {
@@ -467,12 +508,11 @@
   'variables':
     'patterns': [
       {
-        'match': '(%)((~([fdpnxsatz]|\\$PATH:)*)?\\d|\\*)'
+        'match': '(%)(?:(?i:~[fdpnxsatz]*(?:\\$PATH:)?)?\\d|\\*)'
         'captures':
           '1':
             'name': 'punctuation.definition.variable.batchfile'
-          '2':
-            'name': 'variable.parameter.batchfile'
+        'name': 'variable.parameter.batchfile'
       }
       {
         'include': '#variable'
