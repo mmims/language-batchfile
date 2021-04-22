@@ -23,3 +23,4 @@ describe "Grammar", ->
   grammarTest path.join(__dirname, 'fixtures/issues/issue_028.bat')
   grammarTest path.join(__dirname, 'fixtures/issues/issue_029.bat')
   grammarTest path.join(__dirname, 'fixtures/issues/issue_034.bat')
+  grammarTest path.join(__dirname, 'fixtures/issues/issue_035.bat')
