@@ -1,6 +1,11 @@
+## 0.7.7 - Grammar Fixes
+* Fix inline comments with labels. Fixes #35. (Thanks CPterion)
+* Fix arithmetic assignments with quotations. Fixes #34. (Thanks CPterion)
+* Fix incorrect scoping of batch parameters. Fixes #29. (Thanks msftrncs)
+
 ## 0.7.6 - Grammar Fixes
-* Add OpenSSH keywords. Fixes #31
-* Add wmic and wsl keywords.
+* Add OpenSSH keywords. Fixes #31.
+* Add wmic and wsl keywords. (Thanks mataha)
 
 ## 0.7.5 - Grammar Fixes
 * Fix string assignments with SET /A. Fixes #28.
