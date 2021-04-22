@@ -259,7 +259,7 @@
         'name': 'keyword.operator.logical.batchfile'
       }
       {
-        'match': '([^ ][^=]*)(=)'
+        'match': '([^ =]*)(=)'
         'captures':
           '1':
             'name': 'variable.other.readwrite.batchfile'
@@ -407,7 +407,7 @@
   'labels':
     'patterns': [
       {
-        'match': '(?i)(?:^\\s*|(?<=goto)\\s*)(:)([^+=,;:\\s].*)$'
+        'match': '(?i)(?:^\\s*|(?<=call|goto)\\s*)(:)([^+=,;:\\s]\\S*)'
         'captures':
           '1':
             'name': 'punctuation.separator.batchfile'
